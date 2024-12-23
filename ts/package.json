@@ -1,0 +1,17 @@
+{
+  "name": "aoc2024",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && node out/index.js"
+  },
+  "author": "https://github.com/ThomasGysemans",
+  "license": "ISC",
+  "description": "Advent Of Code 2024 in TypeScript",
+  "dependencies": {
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2"
+  }
+}
