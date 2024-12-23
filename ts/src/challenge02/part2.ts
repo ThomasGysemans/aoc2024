@@ -15,10 +15,9 @@ function isValidReport(numbers: number[], retried = false): boolean {
             if (retried) {
                 return false;
             } else {
-                const isValidWithoutJ_1 = isValidReport(numbers.filter((_,i) => i !== j - 1), true);
-                const isValidWithoutJ = isValidReport(numbers.filter((_,i) => i !== j), true);
-                const isValidWithoutJ1 = isValidReport(numbers.filter((_,i) => i !== j + 1), true);
-                return isValidWithoutJ_1 || isValidWithoutJ || isValidWithoutJ1;
+                return isValidReport(numbers.filter((_,i) => i !== j - 1), true) ||
+                    isValidReport(numbers.filter((_,i) => i !== j), true) ||
+                    isValidReport(numbers.filter((_,i) => i !== j + 1), true);
             }
         }
     }
