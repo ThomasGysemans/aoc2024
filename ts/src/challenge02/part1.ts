@@ -11,11 +11,11 @@ export default function code() {
         for (let j = 0; j < numbers.length - 1; j++) {
             const delta = numbers[j] - numbers[j + 1];
             if (isIncreasing) {
-                if (numbers[j] >= numbers[j + 1] || !(delta <= -1 && delta >= -3)) {
+                if (!(delta <= -1 && delta >= -3)) {
                     continue main;
                 }
             } else {
-                if (numbers[j] <= numbers[j + 1] || !(delta >= 1 && delta <= 3)) {
+                if (!(delta >= 1 && delta <= 3)) {
                     continue main;
                 }
             }

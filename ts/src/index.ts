@@ -1,4 +1,4 @@
-import code from "./challenge02/part1";
+import code from "./challenge02/part2";
 import * as fs from "fs";
 
 export function getInput(): string {
