@@ -1,3 +1,8 @@
-import code from "./challenge01/part1";
+import code from "./challenge01/part2";
 
-console.log(code());
+console.time("Runtime");
+try {
+    console.log(code());
+} finally {
+    console.timeEnd("Runtime");
+}

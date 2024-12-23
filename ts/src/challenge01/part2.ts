@@ -7,6 +7,7 @@ export default function code() {
 
     const left_list = new Uint32Array(lines.length);
     const right_list = new Uint32Array(lines.length);
+    const map = new Map<number, number>();
     let result = 0;
 
     for (let i = 0; i < lines.length; i++) {
@@ -18,12 +19,20 @@ export default function code() {
         right_list[i] = right;
     }
 
-    left_list.sort();
-    right_list.sort();
-
     for (let i = 0; i < left_list.length; i++) {
-        const delta = Math.abs(left_list[i] - right_list[i]);
-        result += delta;
+        for (let j = 0; j < right_list.length; j++) {
+            if (left_list[i] === right_list[j]) {
+                if (map.has(left_list[i])) {
+                    map.set(left_list[i], map.get(left_list[i])! + 1);
+                } else {
+                    map.set(left_list[i], 1);
+                }
+            }
+        }
+    }
+
+    for (const [key, value] of map) {
+        result += key * value;
     }
 
     return result;
