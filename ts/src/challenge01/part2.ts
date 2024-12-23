@@ -7,7 +7,6 @@ export default function code() {
 
     const left_list = new Uint32Array(lines.length);
     const right_list = new Uint32Array(lines.length);
-    const map = new Map<number, number>();
     let result = 0;
 
     for (let i = 0; i < lines.length; i++) {
@@ -20,19 +19,13 @@ export default function code() {
     }
 
     for (let i = 0; i < left_list.length; i++) {
+        let occurrences = 0;
         for (let j = 0; j < right_list.length; j++) {
             if (left_list[i] === right_list[j]) {
-                if (map.has(left_list[i])) {
-                    map.set(left_list[i], map.get(left_list[i])! + 1);
-                } else {
-                    map.set(left_list[i], 1);
-                }
+                occurrences++;
             }
         }
-    }
-
-    for (const [key, value] of map) {
-        result += key * value;
+        result += left_list[i] * occurrences;
     }
 
     return result;
